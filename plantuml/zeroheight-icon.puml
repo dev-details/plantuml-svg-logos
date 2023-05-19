@@ -1,0 +1,3 @@
+@startuml
+sprite zeroheight-icon <svg xmlns="http://www.w3.org/2000/svg" width="256" height="310" preserveAspectRatio="xMidYMid"><defs><linearGradient id="a" x1="15.751%" x2="84.249%" y1="100%" y2="0%"><stop offset="0%" stop-color="#EC407A"/><stop offset="100%" stop-color="#FFA000"/></linearGradient></defs><path fill="url(#a)" d="m22.627 0 22.64 48.24H0L22.627 0ZM0 55.862h45.268v215.841H0V55.863Zm0 223.463h45.268v26.242H0v-26.242Zm80.54-231.21 31.352-31.323L256 161.012l-144.834 148.31-31.295-29.732 113.762-118.369L80.541 48.13v-.014Z"/></svg>
+@enduml

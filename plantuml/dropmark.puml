@@ -1,0 +1,3 @@
+@startuml
+sprite dropmark <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="348" preserveAspectRatio="xMidYMid"><defs><path id="a" d="M128 0S0 91.067 0 219.067c0 70.704 57.296 128 128 128 70.704 0 128-57.296 128-128C256 91.067 128 0 128 0Zm0 293.312-68.68-79.051H89.93v-90.308h76.142v90.308h30.609L128 293.312Z"/></defs><use xlink:href="#a" fill="#38DEDF"/></svg>
+@enduml
