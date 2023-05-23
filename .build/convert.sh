@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # svgo required: pnpm -g install svgo
 # https://github.com/svg/svgo
 
