@@ -28,8 +28,6 @@ gray -down-> white
 @enduml
 EOF
 
-    cat $output_file
-
     # Open the generated SVG in a web browser
     open "$output_file"
 }

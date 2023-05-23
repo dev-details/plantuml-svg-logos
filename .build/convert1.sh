@@ -26,13 +26,14 @@ input_file="$tmp_dir/${base_name}.svg"
 
 curl -L "$svg_url" >> "$input_file"
 
-svgo "$input_file"
+svgo --multipass --pretty --final-newline "$input_file"
 
 output_file="$output_dir/$base_name.puml"
 
 echo "@startuml" > "$output_file"
 echo "sprite $base_name $(cat "$input_file")" >> "$output_file"
 echo "@enduml" >> "$output_file"
+echo "" >> "$output_file"
 
 echo "Processed file: $base_name"
 
