@@ -7,10 +7,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 test "${DEBUG:-}" && set -x
 
 function display_help {
-    echo "Usage: $0 [--help] [--no-optimize] [--no-preview] <sprite_name> <svg_url>"
+    echo "Usage: $0 [--help] [--no-optimize] [--preview] <sprite_name> <svg_url>"
     echo "--no-optimize: Disables the SVG optimization"
     echo "--help: Shows this help message."
-    echo "--no-preview: Disables preview"
+    echo "--preview: Preview the sprite in a browser"
     exit 0
 }
 
@@ -55,7 +55,7 @@ function preview_plantuml {
 function main {
     local OPTIMIZE=true
     local HELP=false
-    local PREVIEW=true
+    local PREVIEW=false
     local args=()
 
     # Parse flags
@@ -69,8 +69,8 @@ function main {
             --help)
             display_help
             ;;
-            --no-preview)
-            PREVIEW=false
+            --preview)
+            PREVIEW=true
             shift
             ;;
             *)
