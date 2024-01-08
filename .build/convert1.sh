@@ -26,9 +26,21 @@ function download_svg {
     echo "$svg_file"
 }
 
+function copy_local_file {
+    local base_name="$1"
+    local src_path="$2"
+
+    # Copy to a temporary directory
+    tmp_dir="$(mktemp -d)"
+    svg_file="$tmp_dir/${base_name}.svg"
+
+    cp "$src_path" "$svg_file"
+    echo "$svg_file"
+}
+
 function optimize_svg {
     local svg_file="$1"
-    svgo --multipass --pretty --final-newline "$svg_file"
+    svgo --config "$DIR/svgo.config.mjs" --multipass --pretty --final-newline "$svg_file"
 }
 
 
@@ -90,13 +102,22 @@ function main {
         exit 1
     fi
 
-    local svg_file="$(download_svg "$base_name" "$svg_url")"
+    local svg_file
+    if [[ "$svg_url" =~ ^https?:// ]]; then
+        echo "Downloading..."
+        svg_file="$(download_svg "$base_name" "$svg_url")"
+    else
+        echo "Copying..."
+        svg_file="$(copy_local_file "$base_name" "$svg_url")"
+    fi
 
     if $OPTIMIZE; then
+        echo "Optimizing..."
         optimize_svg "$svg_file"
     fi
 
     # Generate PlantUML
+    echo "Generating..."
     generate_plantuml "$base_name" "$svg_file"
 
     echo "Generated PlantUML SVG for: $base_name"
